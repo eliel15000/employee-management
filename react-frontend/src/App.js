@@ -1,12 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import ListEmployee from "./components/ListEmployee";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     // <div className="App">
-    <div className="container">
-      <ListEmployee />
+    <div>
+      <Header />
+      <div className="container">
+        <ListEmployee />
+      </div>
+      <Footer />
     </div>
   );
 }
