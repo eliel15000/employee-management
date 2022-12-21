@@ -1,6 +1,26 @@
 .navbar a {
   padding-left: 15px;
 }
+.container {
+  margin-bottom: 60px;
+}
+
+.text-center {
+  padding-top: 10px;
+}
+
+.btn-div {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.btn-div button {
+  width: 90px;
+}
+
+.btn-danger {
+  margin-left: 10px;
+}
 
 .footer {
   position: absolute;

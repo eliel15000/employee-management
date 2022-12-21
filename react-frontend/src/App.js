@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ListEmployee from "./components/ListEmployee";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CreateEmployee from "./components/CreateEmployee";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<ListEmployee />} />
             <Route path="/employees" element={<ListEmployee />} />
+            <Route path="/add-employee" element={<CreateEmployee />} />
           </Routes>
         </div>
         <Footer />
