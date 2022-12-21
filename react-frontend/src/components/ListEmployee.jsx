@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import EmployeeService from "../services/EmployeeService";
 
 const ListEmployee = () => {
 
   const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    EmployeeService.getEmployees().then((res) => {
+      setEmployees(res.data);
+    });
+  }, []);
 
   return (
     <div>
@@ -21,7 +28,7 @@ const ListEmployee = () => {
 
           <tbody>
             {
-              employees.map((emp) => (
+              employees.length >= 1 && employees.map((emp) => (
                 <tr key={emp.id}>
                   <td>{ emp.firstName }</td>
                   <td>{ emp.lastName }</td>
