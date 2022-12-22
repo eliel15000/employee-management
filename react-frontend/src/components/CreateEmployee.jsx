@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
 
@@ -24,19 +24,11 @@ const CreateEmployee = () => {
     // alert(validateInputs());
     // alert("employee --> " + JSON.stringify(employee));
 
-    if (validateInputs()) {
+    if (firstName !== "" && lastName !== "" && emailId !== "") {
       // alert("success");
       EmployeeService.createEmployee(employee).then(() => navigate("/"));
     }
     // navigate("/");
-  }
-
-  const validateInputs = () => {
-    if (firstName !== "" && lastName !== "" && emailId !== "") {
-      return true;
-    }
-
-    return false;
   }
 
   return (
