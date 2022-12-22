@@ -17,8 +17,14 @@ const ListEmployee = () => {
     navigate("/add-employee/_add");
   }
 
-  const editEmployee= (id) => {
+  const editEmployee = (id) => {
     navigate(`/add-employee/${id}`);
+  }
+
+  const deleteEmployee = (id) => {
+    EmployeeService.deleteEmployee(id).then(() => {
+      setEmployees(employees.filter(emp => emp.id !== id));
+    });
   }
 
   return (
@@ -48,6 +54,7 @@ const ListEmployee = () => {
                   <td>{ emp.emailId }</td>
                   <td>
                     <button className="btn btn-info" onClick={() => { editEmployee(emp.id) }}>Update</button>
+                    <button className="btn btn-danger" onClick={() => { deleteEmployee(emp.id) }}>Delete</button>
                   </td>
                 </tr>
               ))
