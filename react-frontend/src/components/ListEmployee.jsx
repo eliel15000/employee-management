@@ -17,6 +17,10 @@ const ListEmployee = () => {
     navigate("/add-employee");
   }
 
+  const editEmployee= (id) => {
+    navigate(`/update-employee/${id}`);
+  }
+
   return (
     <div>
       <h2 className="text-center">Employee List</h2>
@@ -42,12 +46,16 @@ const ListEmployee = () => {
                   <td>{ emp.firstName }</td>
                   <td>{ emp.lastName }</td>
                   <td>{ emp.emailId }</td>
+                  <td>
+                    <button className="btn btn-info" onClick={() => { editEmployee(emp.id) }}>Update</button>
+                  </td>
                 </tr>
               ))
             }
           </tbody>
 
         </table>
+        { employees.length < 1 && <h3 className="text-center">Empty List or Employees Not Found</h3>}
       </div>
     </div>
   );

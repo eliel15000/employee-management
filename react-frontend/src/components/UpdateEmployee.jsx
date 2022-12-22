@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
 
-const CreateEmployee = () => {
+const UpdateEmployee = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailId, setEmailId] = useState("");
+  const params = useParams();
   const navigate = useNavigate();
 
   // useEffect(() => {
@@ -14,7 +15,17 @@ const CreateEmployee = () => {
   //   console.log(emailId);
   // }, [firstName, lastName, emailId]);
 
-  const saveEmployee = (e) => {
+  useEffect(() => {
+    // console.log("param: " + params.id);
+    EmployeeService.getEmployeeById(params.id).then((res) => {
+      let emp = res.data;
+      setFirstName(emp.firstName);
+      setLastName(emp.lastName);
+      setEmailId(emp.emailId);
+    });
+  }, []);
+
+  const updateEmployee = (e) => {
     e.preventDefault();
     let employee = { 
       firstName: firstName,
@@ -25,7 +36,10 @@ const CreateEmployee = () => {
 
     if (firstName !== "" && lastName !== "" && emailId !== "") {
       // alert("success");
-      EmployeeService.createEmployee(employee).then(() => navigate("/"));
+      // EmployeeService.createEmployee(employee).then(() => navigate("/"));
+      // console.log(employee);
+
+      EmployeeService.updateEmployee(employee, params.id).then(() => navigate("/"));
     }
   }
 
@@ -34,7 +48,7 @@ const CreateEmployee = () => {
       <div className="container">
         <div className="row mt-5">
           <div className="card col-md-6 offset-md-3">
-            <h3 className="text-center">Add Employee</h3>
+            <h3 className="text-center">Update Employee</h3>
             <div className="card-body"></div>
 
             <form>
@@ -73,7 +87,7 @@ const CreateEmployee = () => {
               </div>
 
               <div className="btn-div">
-                <button type="submit" className="btn btn-success" onClick={(e) => saveEmployee(e)}>Save</button>
+                <button type="submit" className="btn btn-success" onClick={(e) => updateEmployee(e)}>Save</button>
                 <button className="btn btn-danger" onClick={() => { navigate("/") }}>Cancel</button>
               </div>
 
@@ -85,4 +99,4 @@ const CreateEmployee = () => {
   );
 }
 
-export default CreateEmployee;
+export default UpdateEmployee;
