@@ -14,16 +14,16 @@ const ListEmployee = () => {
   }, []);
 
   const addEmployee = () => {
-    navigate("/add-employee");
+    navigate("/add-employee/_add");
   }
 
   const editEmployee= (id) => {
-    navigate(`/update-employee/${id}`);
+    navigate(`/add-employee/${id}`);
   }
 
   return (
     <div>
-      <h2 className="text-center">Employee List</h2>
+      <h2 className="text-center mt-3">Employee List</h2>
       <div>
         <button className="btn btn-primary mb-3" onClick={addEmployee}>Add Employee</button>
       </div>

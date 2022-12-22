@@ -9,12 +9,6 @@ const UpdateEmployee = () => {
   const params = useParams();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   console.log(firstName);
-  //   console.log(lastName);
-  //   console.log(emailId);
-  // }, [firstName, lastName, emailId]);
-
   useEffect(() => {
     // console.log("param: " + params.id);
     EmployeeService.getEmployeeById(params.id).then((res) => {
