@@ -10,12 +10,13 @@
   margin-bottom: 16px;
 }
 
-.btn-div button {
+.btn-div button, .btn-secondary {
   width: 90px;
 }
 
 .btn-danger {
   margin-left: 10px;
+  margin-right: 10px;
 }
 
 .footer {

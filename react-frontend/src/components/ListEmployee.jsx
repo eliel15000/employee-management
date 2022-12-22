@@ -27,6 +27,10 @@ const ListEmployee = () => {
     });
   }
 
+  const viewEmployee = (id) => {
+    navigate(`/view-employee/${id}`);
+  }
+
   return (
     <div>
       <h2 className="text-center mt-3">Employee List</h2>
@@ -55,6 +59,7 @@ const ListEmployee = () => {
                   <td>
                     <button className="btn btn-info" onClick={() => { editEmployee(emp.id) }}>Update</button>
                     <button className="btn btn-danger" onClick={() => { deleteEmployee(emp.id) }}>Delete</button>
+                    <button className="btn btn-info" onClick={() => { viewEmployee(emp.id) }}>View</button>
                   </td>
                 </tr>
               ))
