@@ -74,4 +74,3 @@ const ListEmployee = () => {
 }
 
 export default ListEmployee;
-// export default withRouter(ListEmployee);

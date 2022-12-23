@@ -36,23 +36,6 @@ const ViewEmployee = () => {
             <h5>Employee Email ID: { emailId }</h5>
           </div>
 
-          {/* <table className="table table-striped table-bordered">
-            <tbody>
-              <tr>
-                <td>Employee First Name:</td>
-                <td>{ firstName }</td>
-              </tr>
-              <tr>
-                <td>Employee Last Name:</td>
-                <td>{ lastName }</td>
-              </tr>
-              <tr>
-                <td>Employee Email ID:</td>
-                <td>{ emailId }</td>
-              </tr>
-            </tbody>
-          </table> */}
-
         </div>
       </div>
       <button className="btn btn-secondary offset-md-3 mt-3" onClick={() => navigate("/")}>Back</button>

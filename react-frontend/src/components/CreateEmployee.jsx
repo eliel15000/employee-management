@@ -35,10 +35,8 @@ const CreateEmployee = () => {
       lastName: lastName,
       emailId: emailId
     }
-    // alert("employee --> " + JSON.stringify(employee));
 
     if (firstName !== "" && lastName !== "" && emailId !== "") {
-      // alert("success");
       if (params.id === "_add") {
         EmployeeService.createEmployee(employee).then(() => navigate("/"));
       } else {
@@ -60,7 +58,6 @@ const CreateEmployee = () => {
       <div className="container">
         <div className="row mt-5">
           <div className="card col-md-6 offset-md-3">
-            {/* <h3 className="text-center mt-3">Add Employee</h3> */}
             { getTitle() }
             <div className="card-body">
 
