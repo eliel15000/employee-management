@@ -26,7 +26,7 @@ const CreateEmployee = () => {
         setEmailId(emp.emailId);
       });
     }
-  }, []);
+  }, [params]);
 
   const saveOrUpdateEmployee = (e) => {
     e.preventDefault();
